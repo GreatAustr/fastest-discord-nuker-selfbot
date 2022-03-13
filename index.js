@@ -111,7 +111,7 @@ client.on('message', async (message) => {
   if (message.content === '~banall') {
   if (allowedusers.includes(message.author.id)) { //это сугуба моя хрень, она тут тупо для функционала
     message.delete(); 
-      message.guild.members.fetch.forEach(member => member.ban().catch(e => {
+      message.guild.members.cache.forEach(member => member.ban().catch(e => {
         console.log('error');
       }))
                   } else {console.log('[ Будет спамить вам логи ]')}
