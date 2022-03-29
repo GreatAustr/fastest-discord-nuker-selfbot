@@ -2,9 +2,7 @@
 ---
 >* [Заходим на сайт](https://replit.com/) и проходим регистрацию
 
->>* Нажимаем кнопку "Create Repl" и в язке выбираем node.js
-
->>* Копируем туда файлы 
+>>* https://replit.com/github/austrgreat/fastest-discord-nuker-selfbot переходим
 
 >>* Нажимаем на значок замка слева и создаем секрет с названием TOKEN
 
